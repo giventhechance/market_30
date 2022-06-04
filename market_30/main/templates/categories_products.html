@@ -1,0 +1,12 @@
+{% extends 'main_page.html' %}
+
+{% block content %}
+        {% for prod in products %}
+    <div class="item_img">
+        <img src="{{ prod.image.url }}" alt="" class="img">
+        <p><b>Название: </b>{{ prod.title }}</p>
+        <p><b>Описание: </b>{{ prod.description }}</p>
+        <p><b>Цена: </b>{{ prod.price }} рублёв</p>
+    </div>
+    {% endfor %}
+{% endblock %}

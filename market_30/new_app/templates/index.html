@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+{#<form action="" method="POST" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#    {{ form.as_p }}#}
+{#    <button>OK</button>#}
+{#</form>#}
+
+{#<form action="{{ url 'new_app:form_save' }}" method="POST" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#    {% for i in persons %}#}
+{#        <input type="text" value="{{ i }}">#}
+{##}
+{#    {% endfor %}#}
+{#    <button>OK</button>#}
+{#</form>#}
+
+<form action="/new_form/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="nickname">Введите никнейм: </label>
+    <input type="text" id="nickname">
+    <button>OK</button>
+</form>
+</body>
+</html>

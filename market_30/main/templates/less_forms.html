@@ -1,0 +1,26 @@
+{% extends 'main_page.html' %}
+
+{% block content %}
+
+    <h2>Новая категория</h2>
+    <form action="{% url 'main:form_category' %}" method="POST">
+    {% csrf_token %}
+    {{ errors.text }}
+    {{ form.as_p }}
+    <button>ОK FORM</button>
+    </form>
+
+    <h2>Новый продукт</h2>
+    <form action="{% url 'main:form_product' %}" method="POST">
+    {% csrf_token %}
+    {{ prod_form.as_p }}
+    <button>OK</button>
+    </form>
+
+    <h2>Новый магазин</h2>
+    <form action="{% url 'main:form_shop' %}" method="POST">
+    {% csrf_token %}
+    {{ shop_form.as_p }}
+    <button>OK</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Market_Python</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<header id="header">
+    <div class="block">
+        <a href="https://html5book.ru/"><img src="{% static 'img/logo.jpg' %}" alt="" class="headerlogo"></a>
+    </div>
+    <div class="block">
+        world
+    </div>
+    <div class="block">
+        !!!!!!
+    </div>
+</header>
+<nav class="nav">
+    <ul class="nav_ul">
+        <li><a href="{% url 'main:main_page' %}">Все категории</a></li>
+        {% for cat in categories %}
+            <li><a href="{% url 'main:category_sort' cat.id %}">{{ cat.name }}</a></li>
+        {% endfor %}
+        <li><a href="{% url 'main:less_forms' %}">Добавить</a></li>
+    </ul>
+</nav>
+<main class="main">
+    {% block content %}
+        {% for prod in products %}
+            <div class="item_img">
+                <a href="{% url 'main:product_detail' prod.id %}">
+                    <img src="{{ prod.image.url }}" alt="" class="img">
+                    <p><b>Название: </b>{{ prod.title }}</p>
+                    <p><b>Описание: </b>{{ prod.description }}</p>
+                    <p><b>Цена: </b>{{ prod.price }} рублёв</p>
+                </a>
+            </div>
+        {% endfor %}
+    {% endblock %}
+</main>
+</body>
+</html>
